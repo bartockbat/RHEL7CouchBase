@@ -33,6 +33,14 @@ RUN yum clean all
 
 
 COPY scripts/couchbase-start /usr/local/bin/
+
+LABEL Name=rhel7/couchdb
+LABEL Release=Latest 
+LABEL Vendor=Couchbase 
+LABEL Version=3.0.1 
+
+LABEL RUN="docker run -d -p 8091:8091 -p 8092:8092 --restart always --name NAME IMAGE"
+
 ENTRYPOINT ["couchbase-start"]
 CMD ["couchbase-server", "--", "-noinput"]
 # pass -noinput so it doesn't drop us in the erlang shell
