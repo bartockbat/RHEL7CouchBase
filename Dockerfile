@@ -1,7 +1,6 @@
 #FROM centos:6
 # This is a RHEL 7 image from Redhat
-#FROM registry.access.redhat.com/rhel7.1
-FROM registry.access.redhat.com/rhel7/rhel-tools 
+FROM registry.access.redhat.com/rhel7.1
 
 MAINTAINER Couchbase Docker Team <docker@couchbase.com>
 
