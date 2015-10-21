@@ -1,6 +1,7 @@
 #FROM centos:6
 # This is a RHEL 7 image from Redhat
-FROM registry.access.redhat.com/rhel7.1
+#FROM registry.access.redhat.com/rhel7.1
+FROM registry.access.redhat.com/rhel7/rhel-tools 
 
 MAINTAINER Couchbase Docker Team <docker@couchbase.com>
 
@@ -20,9 +21,9 @@ RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364
     && rm /usr/local/bin/gosu.asc \
     && chmod +x /usr/local/bin/gosu
 
-ENV CB_VERSION=3.0.1 \
+ENV CB_VERSION=4.0.0 \
     CB_RELEASE_URL=http://packages.couchbase.com/releases \
-    CB_PACKAGE=couchbase-server-community-3.0.1-centos6.x86_64.rpm \
+    CB_PACKAGE=couchbase-server-community-4.0.0-centos7.x86_64.rpm \
     PATH=$PATH:/opt/couchbase/bin:/opt/couchbase/bin/tools:/opt/couchbase/bin/install
 
 # Install couchbase
@@ -37,7 +38,7 @@ COPY scripts/couchbase-start /usr/local/bin/
 LABEL Name=rhel7/couchdb
 LABEL Release=Latest 
 LABEL Vendor=Couchbase 
-LABEL Version=3.0.1 
+LABEL Version=4.0.0 
 
 LABEL RUN="docker run -d -p 8091:8091 -p 8092:8092 --restart always --name NAME IMAGE"
 
